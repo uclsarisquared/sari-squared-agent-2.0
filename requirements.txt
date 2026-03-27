@@ -1,0 +1,7 @@
+python-socketio
+eventlet
+mcp
+langchain
+langchain-mcp-adapters
+langgraph
+moondream
