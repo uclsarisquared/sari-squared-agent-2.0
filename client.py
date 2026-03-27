@@ -1,15 +1,18 @@
 import asyncio
 import sys
 import time
+import os
 from langchain_mcp_adapters.client import MultiServerMCPClient
 from langgraph.graph import StateGraph, MessagesState, START
 from langgraph.prebuilt import ToolNode, tools_condition
 from langchain.chat_models import init_chat_model
 
+model_base_url = os.environ["UCL_MODEL_BASE_URL"]
+
 # --- Setup ---
 model = init_chat_model(
     "openai:Qwen/Qwen3.5-27B",
-    base_url="secret",
+    base_url=model_base_url+":8000/v1",
     api_key="secret"
 )
 

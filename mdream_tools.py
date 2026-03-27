@@ -1,8 +1,10 @@
 import moondream as md
+import os
 from PIL import Image
 
+
 # Initialize with your API key
-model = md.vl(api_key="secret")
+model = md.vl(api_key=os.environ["MDREAM_API_KEY"])
 
 # Load an image
 image = Image.open("C:\\Sari\\sari-squared-agent-2.0\\currentview\\current_view.jpg")
