@@ -76,6 +76,8 @@ def move_backward(distance: float):
         sio.sleep(0.01)  # allows SocketIO background thread to run
 
     return bool(result["status"])
+
+
 @mcp.tool()
 def move_left(distance: float):
     """Move the player left by the specified distance in meters. This is mainly used for minor adjustments to the player's position.
@@ -145,6 +147,8 @@ def rotate_left(angle: float):
     while result["status"] is None and (time.time() - t0 < timeout):
         sio.sleep(0.01)  # allows SocketIO background thread to run
     return bool(result["status"])
+
+
 @mcp.tool()
 def rotate_right(angle: float):
     """Rotate the player clockwise by the specified angle in degrees. This is mainly used for minor adjustments to the player's position.
@@ -167,6 +171,7 @@ def rotate_right(angle: float):
     while result["status"] is None and (time.time() - t0 < timeout):
         sio.sleep(0.01)  # allows SocketIO background thread to run
     return bool(result["status"])
+
 
 @mcp.tool()
 def look_up(angle: float):
@@ -191,6 +196,7 @@ def look_up(angle: float):
     while result["status"] is None and (time.time() - t0 < timeout):
         sio.sleep(0.01)  # allows SocketIO background thread to run
     return bool(result["status"])
+
 
 @mcp.tool()
 def look_down(angle: float):
