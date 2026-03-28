@@ -4,7 +4,6 @@
 from mcp.server.fastmcp import FastMCP, Image
 import socketio
 import time
-import pathlib
 import base64
 import os
 import json
@@ -270,7 +269,7 @@ def get_item_at_pixel(img_x:int, img_y:int):
         callback=ack_callback
     )
     # Wait for callback (simple busy-wait)
-    timeout = 10.0  # seconds
+    timeout = 20.0  # seconds
     t0 = time.time()
     while result["status"] is None and (time.time() - t0 < timeout):
         sio.sleep(0.01)  # allows SocketIO background thread to run
