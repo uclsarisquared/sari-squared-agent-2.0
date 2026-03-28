@@ -379,25 +379,5 @@ def get_current_view() -> list:
         types.ImageContent(type="image", data=b64, mimeType="image/jpeg")
     ]
 
-
-#@mcp.tool()
-#def get_current_view_command():
-#    """Get the jpg of the player's current view."""
-#    return pathlib.Path("C:/Sari/MCP/currentview/current_view.jpg").read_bytes()
-#Resources
-# @mcp.resource("path/to/screenshots")
-# def get_screenshots():
-#     """Get the latest screenshots from the player's view."""
-#     return ["screenshot1.png", "screenshot2.png"]
-# @mcp.resource("path/to/item_database")
-# def get_item_database():
-#     """Get the item database."""
-#     return "item_database.json"
-# @mcp.resource("path/to/item_description")
-# def get_item_description():
-#     """Get the item description file."""
-#     return "item_description.txt"
-# #Start the MCP server
-
 if __name__ == "__main__":
     mcp.run(transport='stdio')
