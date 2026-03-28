@@ -39,6 +39,7 @@ def move_fwd(sid, amount):
         print(">> Unity client not connected.")
         return {"success": False}
 
+
 @sio.on('MOVE_BCK')
 def move_bck(sid, amount):
     print(f'[sid: {sid}] MOVE_BCK({amount})')
@@ -50,6 +51,7 @@ def move_bck(sid, amount):
         print(">> Unity client not connected.")
         return {"success": False}
 
+
 @sio.on('MOVE_LFT')
 def move_lft(sid, amount):
     print(f'[sid: {sid}] MOVE_LFT({amount})')
@@ -60,7 +62,8 @@ def move_lft(sid, amount):
     else:
         print(">> Unity client not connected.")
         return {"success": False}
-    
+
+
 @sio.on('MOVE_RGT')
 def move_rgt(sid, amount):
     print(f'[sid: {sid}] MOVE_RGT({amount})')
@@ -71,6 +74,7 @@ def move_rgt(sid, amount):
     else:
         print(">> Unity client not connected.")
         return {"success": False}
+
 
 @sio.on('TURN_LFT')
 def turn_lft(sid, amount):
@@ -83,6 +87,7 @@ def turn_lft(sid, amount):
         print(">> Unity client not connected.")
         return {"success": False}
 
+
 @sio.on('TURN_RGT')
 def turn_rgt(sid, amount):
     print(f'[sid: {sid}] TURN_RGT({amount})')
@@ -94,6 +99,7 @@ def turn_rgt(sid, amount):
         print(">> Unity client not connected.")
         return {"success": False}
 
+
 @sio.on('LOOK_UP')
 def look_up(sid, amount):
     print(f'[sid: {sid}] LOOK_UP({amount})')
@@ -104,7 +110,8 @@ def look_up(sid, amount):
     else:
         print(">> Unity client not connected.")
         return {"success": False}
-    
+
+
 @sio.on('LOOK_DOWN')
 def look_down(sid, amount):
     print(f'[sid: {sid}] LOOK_DOWN({amount})')
@@ -115,6 +122,7 @@ def look_down(sid, amount):
     else:
         print(">> Unity client not connected.")
         return {"success": False}
+
 
 @sio.on('MOVE_TO_ITEM')
 def move_to_item(sid, item):
@@ -135,6 +143,7 @@ def move_to_item(sid, item):
     except eventlet.timeout.Timeout:
         print(">> Timeout waiting for Unity response.")
         return {"success": False, "error": "Timeout waiting for Unity response"}
+
 
 @sio.on('PICK_ITEM')
 def pick_item(sid, data):
@@ -158,6 +167,7 @@ def pick_item(sid, data):
         print(">> Timeout waiting for Unity response.")
         return {"success": False, "error": "Timeout waiting for Unity response"}
 
+
 @sio.on('UNITY_RESPONSE')
 def handle_unity_response(sid, data):
     global unity_response
@@ -166,9 +176,11 @@ def handle_unity_response(sid, data):
     if unity_done:
         unity_done.send()  # Signal that the response has been received
 
+
 @sio.event
 def disconnect(sid, reason):
     print(sid, 'disconnected', reason)
+
 
 if __name__ == '__main__':
     import eventlet
